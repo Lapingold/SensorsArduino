@@ -4,3 +4,5 @@ by our sensors.
 
 ## Temperature and Humidity Sensor
 ![image](https://github.com/ChasVasastan/SensorsArduino/assets/90247610/ff886cdf-08a3-4ff9-8850-492c6f330fd2)
+Install DHT_Unified_Sensor library for the Arduino in PlatformIO 
+And in order to see the data from the Hum/Temp. Sensor in VSC you also need to install the Serial Montior extension.
