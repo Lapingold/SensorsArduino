@@ -9,7 +9,8 @@ And in order to see the data from the Hum/Temp. Sensor in VSC you also need to i
 
 
 ## APDS 9960 - Gesture, Proximity, RGB and Ambient
-![image](https://github.com/ChasVasastan/SensorsArduino/assets/90247610/e60e6f32-ca0e-4230-af78-1c82e6b16d36)
+![image](https://github.com/ChasVasastan/SensorsArduino/assets/90247610/bf7ba742-1b05-4729-b156-98e1330615df)
+
 
 
 ## PDM Microphone
