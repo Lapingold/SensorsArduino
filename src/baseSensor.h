@@ -6,11 +6,11 @@ class BaseSensor
 protected:
     struct _dataPack
     {
-        float humidityData;
-        float tempratureData;
-        int colorData;
-        int gestureData;
-        unsigned char proximityData;
+        float humidityData = 0;
+        float tempratureData = 0;
+        int colorData = 0;
+        int gestureData = 0;
+        unsigned char proximityData = 0;
     } dataPack;
 
 public:
