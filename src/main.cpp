@@ -1,23 +1,16 @@
 #include <Arduino.h>
 #include "DHTSensor.h"
 #include "APDSensor.h"
-#include <Adafruit_APDS9960.h>
-
 
 //DHTSensor dhtSensor;
 APDSensor apdSensor;
 
 void setup()
 {
-  Serial.begin(9600);
-  //dhtSensor.setUpDHT(2); 
-   if (!APDS.begin())
-   {
-    Serial.println("Error failed to innitialize APDSensor."); 
-   }
-   APDS.enableProximity(true);
-   APDS.enableGesture(true);
-   APDS.enableProximity(true);
+  Serial.begin(115200);
+  //dhtSensor.setUpDHT(2);
+  apdSensor.setUpAPDS();
+  
 }
 
 void loop()
@@ -26,7 +19,7 @@ void loop()
   dhtSensor.collectData();*/
 
   apdSensor.readAPDS();
-  apdSensor.collectData();
+  apdSensor.printData();
 
   delay(1000);
 }
