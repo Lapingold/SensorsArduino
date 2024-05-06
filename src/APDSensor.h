@@ -9,7 +9,7 @@ private:
 
         uint16_t r, g ,b ,a;
         uint16_t colors[4];
-        int gestures;
+        uint8_t gestures;
         int proximity;
         Adafruit_APDS9960 APDS;
 

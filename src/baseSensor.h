@@ -10,7 +10,7 @@ protected:
         float humidityData = 0;
         float tempratureData = 0;
         uint16_t colorData[4] = {0, 0, 0, 0};
-        int gestureData = 0;
+        uint8_t gestureData = 0;
         int proximityData = 0;
     } dataPack;
 

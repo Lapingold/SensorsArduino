@@ -6,7 +6,7 @@ void APDSensor::setUpAPDS()
 {
   if (!APDS.begin())
   {
-    Serial.println("failed to initialize device! Please check your wiring.");
+    Serial.println("Failed to initialize device, lease check your wiring.");
   }
   else
   {
@@ -15,12 +15,16 @@ void APDSensor::setUpAPDS()
 
   Serial.println("Enabling sensors");
   APDS.enableProximity(true);
-  APDS.enableGesture(true);
+  // APDS.enableGesture(true);
   APDS.enableColor(true);
 }
 
 void APDSensor::readAPDS()
 {
+
+  while(!APDS.colorDataReady()){
+    delay(5);
+  }
 
   APDS.getColorData(&r, &g, &b, &a);
   colors[0] = r;
@@ -28,8 +32,8 @@ void APDSensor::readAPDS()
   colors[2] = b;
   colors[3] = a;
 
-  gestures = APDS.readGesture();
-  proximity = APDS.readProximity();
+  // gestures = APDS.readGesture();
+   proximity = APDS.readProximity();
 }
 
 void APDSensor::printData()
@@ -38,16 +42,17 @@ void APDSensor::printData()
 
   Serial.print("R: ");
   Serial.print(r);
-  Serial.println(" G: ");
+  Serial.print(" G: ");
   Serial.print(g);
   Serial.print(" B: ");
   Serial.print(b);
   Serial.print(" C: ");
   Serial.println(a);
-  Serial.println("Gesture = ");
-  Serial.print(gestures);
-  Serial.println("Proximity = ");
-  Serial.print(proximity);
+  Serial.print("Gesture = ");
+  Serial.println(gestures);
+  Serial.print("Proximity = ");
+  Serial.println(proximity);
+  Serial.println("-----------------------");
 }
 
 void APDSensor::collectData()
