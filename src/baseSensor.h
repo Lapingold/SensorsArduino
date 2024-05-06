@@ -1,5 +1,6 @@
+#ifndef BASESENSOR_H
+#define BASESENSOR_H
 #include <Arduino.h>
-
 class BaseSensor
 {
 
@@ -8,9 +9,9 @@ protected:
     {
         float humidityData = 0;
         float tempratureData = 0;
-        int colorData = 0;
+        uint16_t colorData[4] = {0, 0, 0, 0};
         int gestureData = 0;
-        unsigned char proximityData = 0;
+        int proximityData = 0;
     } dataPack;
 
 public:
@@ -21,3 +22,5 @@ public:
     // save data in a object
     // virtual char *sendData();
 };
+
+#endif /* BASESENSOR_H */
