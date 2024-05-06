@@ -1,17 +1,17 @@
 #include "baseSensor.h"
 #include <Arduino.h>
 
-#include <Adafruit_APDS9960.h>
+#include <Arduino_APDS9960.h>
 
 class APDSensor : public BaseSensor
 {
 private:
 
-        uint16_t r, g ,b ,a;
+        int r, g ,b ,a;
         uint16_t colors[4];
         uint8_t gestures;
+        uint32_t last_gesture_update;
         int proximity;
-        Adafruit_APDS9960 APDS;
 
 public:
     APDSensor()

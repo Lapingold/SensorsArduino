@@ -3,24 +3,27 @@
 #include "APDSensor.h"
 
 //DHTSensor dhtSensor;
-APDSensor apdSensor;
+APDSensor apds;
 
 void setup()
 {
   Serial.begin(115200);
   //dhtSensor.setUpDHT(2);
-  apdSensor.setUpAPDS();
-  
+  apds.setUpAPDS();
 }
 
 void loop()
 {
   /*dhtSensor.readDHT(2);
   dhtSensor.collectData();*/
+  static uint32_t start = millis();
+  uint32_t now = millis();
 
-  apdSensor.readAPDS();
-  apdSensor.printData();
+  // Print data once every second
+  if (now - start > 1000) {
+    apds.printData();
+    start = now;
+  }
 
-  delay(1000);
+  apds.readAPDS();
 }
-

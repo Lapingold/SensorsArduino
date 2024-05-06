@@ -1,4 +1,4 @@
-#include <Adafruit_APDS9960.h>
+#include <Arduino_APDS9960.h>
 #include "APDSensor.h"
 #include <SPI.h>
 
@@ -14,31 +14,34 @@ void APDSensor::setUpAPDS()
   }
 
   Serial.println("Enabling sensors");
-  APDS.enableProximity(true);
-  // APDS.enableGesture(true);
-  APDS.enableColor(true);
+
+  gestures = GESTURE_NONE;
+  last_gesture_update = 0;
 }
 
 void APDSensor::readAPDS()
 {
-
-  while(!APDS.colorDataReady()){
-    delay(5);
+  if (APDS.colorAvailable()) {
+    APDS.readColor(r, g, b, a);
   }
 
-  APDS.getColorData(&r, &g, &b, &a);
-  colors[0] = r;
-  colors[1] = g;
-  colors[2] = b;
-  colors[3] = a;
+  if (APDS.gestureAvailable()) {
+    int currentGestures = APDS.readGesture();
+    if (currentGestures != GESTURE_NONE) {
+      gestures = currentGestures;
+      last_gesture_update = millis();
+    }
+  }
 
-  // gestures = APDS.readGesture();
-   proximity = APDS.readProximity();
+  if (APDS.proximityAvailable()) {
+    proximity = APDS.readProximity();
+  }
 }
 
 void APDSensor::printData()
 {
-  Serial.println("Trying to print data");
+  Serial.print("Now ");
+  Serial.println(millis());
 
   Serial.print("R: ");
   Serial.print(r);
@@ -46,10 +49,21 @@ void APDSensor::printData()
   Serial.print(g);
   Serial.print(" B: ");
   Serial.print(b);
-  Serial.print(" C: ");
+  Serial.print(" A: ");
   Serial.println(a);
-  Serial.print("Gesture = ");
-  Serial.println(gestures);
+  Serial.print("Latest gesture change (");
+  Serial.print(millis() - last_gesture_update);
+  Serial.print("ms ago) was ");
+  if (gestures == GESTURE_UP)
+    Serial.println("UP");
+  else if (gestures == GESTURE_DOWN)
+    Serial.println("DOWN");
+  else if (gestures == GESTURE_LEFT)
+    Serial.println("LEFT");
+  else if (gestures == GESTURE_RIGHT)
+    Serial.println("RIGHT");
+  else
+    Serial.println("NONE");
   Serial.print("Proximity = ");
   Serial.println(proximity);
   Serial.println("-----------------------");
