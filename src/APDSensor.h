@@ -7,10 +7,10 @@ class APDSensor : public BaseSensor
 {
 private:
 
-        int r;
-        int g;
-        int b;
-        int a;
+        uint16_t r;
+        uint16_t g;
+        uint16_t b;
+        uint16_t a;
         uint16_t colors[4];
         int gestures;
         int proximity;

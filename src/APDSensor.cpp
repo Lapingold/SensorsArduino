@@ -1,5 +1,7 @@
-#include <Arduino_APDS9960.h>
+#include <Adafruit_APDS9960.h>
 #include "APDSensor.h"
+#include <SPI.h>
+Adafruit_APDS9960 APDS;
 
 /*APDS9960 APDSensor::setUpAPDS()
 {
@@ -13,28 +15,17 @@ void APDSensor::readAPDS()
   
    
    //APDS.begin();
-   if (APDS.colorAvailable())
-   {
-   APDS.readColor(r, g, b, a);
+   APDS.getColorData(&r, &g, &b, &a);
    colors[0] = r;
    colors[1] = g;
    colors[2] = b;
    colors[3] = a;
-   }
+   
 
-   if (APDS.gestureAvailable())
-   {
-     gestures = APDS.readGesture();
-   }
-
-   if (APDS.proximityAvailable())
-   {
+     gestures = APDS.readGesture(); 
      proximity = APDS.readProximity();
-   }
 
    printData();
-
-   APDS.end();
 }
 
 void APDSensor::printData()
