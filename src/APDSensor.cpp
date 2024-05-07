@@ -1,6 +1,5 @@
 #include <Arduino_APDS9960.h>
 #include "APDSensor.h"
-#include <SPI.h>
 
 void APDSensor::setUpAPDS()
 {
