@@ -1,10 +1,12 @@
 #include <Arduino.h>
 #include "DHTSensor.h"
 #include "APDSensor.h"
+#include "proccess.h"
+
 
 DHTSensor dhtSensor;
 APDSensor apds;
-
+Proccess proccess;
 void setup()
 {
   Serial.begin(115200);
@@ -21,6 +23,7 @@ void loop()
   // Print data once every second
   if (now - start > 1000)
   {
+    proccess.printData();
     apds.printData();
     dhtSensor.readDHT(2);
     dhtSensor.collectData();

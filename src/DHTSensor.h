@@ -5,7 +5,6 @@
 #include <DHT.h>
 
 
-
 class DHTSensor : public BaseSensor
 {
 private:
@@ -23,5 +22,4 @@ public:
     void printData() override;
     void collectData() override;
 
-    
 };

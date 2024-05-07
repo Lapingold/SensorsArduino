@@ -37,7 +37,7 @@ void APDSensor::readAPDS()
 
 void APDSensor::printData()
 {
-  Serial.print("Now ");
+  Serial.print("Time gone by (ms) ");
   Serial.println(millis());
 
   Serial.print("R: ");
