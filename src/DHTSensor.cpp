@@ -22,10 +22,12 @@ void DHTSensor::readDHT(byte pin)
 
 void DHTSensor::printData()
 {
-    Serial.print("Temperature: ");
+    Serial.println();
+    Serial.print("Temperature: \t");
     Serial.println(temperature);
-    Serial.print("Humidity: ");
-    Serial.println(humidity);
+    Serial.print("Humidity: \t");
+    Serial.print(humidity);
+    Serial.println();
 }
 
 void DHTSensor::collectData() {

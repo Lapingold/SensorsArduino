@@ -61,9 +61,8 @@ void APDSensor::printData()
     Serial.println("RIGHT");
   else
     Serial.println("NONE");
-  Serial.print("Proximity = ");
-  Serial.println(proximity);
-  Serial.println("-----------------------");
+  Serial.print("Proximity: \t");
+  Serial.print(proximity);
 }
 
 void APDSensor::collectData()
