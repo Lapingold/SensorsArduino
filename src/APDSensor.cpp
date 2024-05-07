@@ -6,14 +6,12 @@ void APDSensor::setUpAPDS()
 {
   if (!APDS.begin())
   {
-    Serial.println("Failed to initialize device, lease check your wiring.");
+    Serial.println("Failed to initialize device, please check your wiring.");
   }
   else
   {
     Serial.println("Device initialized!");
   }
-
-  Serial.println("Enabling sensors");
 
   gestures = GESTURE_NONE;
   last_gesture_update = 0;
