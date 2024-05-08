@@ -3,11 +3,11 @@
 
 class Proccess: public BaseSensor{
     private:
-    char* proccessDataToSend[];
+    char* proccessDataToSend[6];
 
     public:
     void printData() override;          // Debug
     void collectData() override;
-    char proccessData();
-
+    void proccessData();
+    void setDataString(char** values, float reading, byte index, uint16_t minTreshold, uint16_t maxThreshold);
 };
