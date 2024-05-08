@@ -7,6 +7,7 @@
 DHTSensor dhtSensor;
 APDSensor apds;
 Proccess proccess;
+
 void setup()
 {
   Serial.begin(115200);
@@ -27,6 +28,7 @@ void loop()
     apds.printData();
     dhtSensor.readDHT(2);
     dhtSensor.collectData();
+    proccess.collectData();
     Serial.println("-----------------");
     start = now;
   }

@@ -3,11 +3,11 @@
 
 class Proccess: public BaseSensor{
     private:
-    char proccessDataToSend[];
+    char* proccessDataToSend[];
 
     public:
     void printData() override;          // Debug
     void collectData() override;
-    char proccessData(); 
+    char proccessData();
 
 };

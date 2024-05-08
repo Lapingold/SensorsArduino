@@ -16,9 +16,9 @@ protected:
 
 public:
     // read sensor
-    virtual void collectData();
+    virtual void collectData() = 0;
     // print data
-    virtual void printData();
+    virtual void printData() = 0;
     // save data in a object
     // virtual char *sendData();
 };
