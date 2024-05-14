@@ -9,16 +9,17 @@ class DHTSensor : public BaseSensor
 {
 private:
     float temperature, humidity;
+    DHT dht;
 
 public:
-    DHTSensor()
+    DHTSensor():dht(0,0)
     {
         temperature = 0;
         humidity = 0;
     }
 
-    class DHT setUpDHT(byte pin);
-    void readDHT(byte pin);
+    void setUpDHT(byte pin);
+    void readDHT();
     void printData() override;
     void collectData() override;
 

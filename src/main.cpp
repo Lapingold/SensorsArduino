@@ -5,14 +5,14 @@
 
 
 DHTSensor dhtSensor;
-APDSensor apds;
+APDSensor apdSensor;
 Proccess proccess;
 
 void setup()
 {
   Serial.begin(115200);
   dhtSensor.setUpDHT(2);
-  apds.setUpAPDS();
+  apdSensor.setUpAPDS();
 }
 
 void loop()
@@ -25,13 +25,13 @@ void loop()
   if (now - start > 1000)
   {
     proccess.printData();
-    apds.printData();
-    dhtSensor.readDHT(2);
+    apdSensor.printData();
+    dhtSensor.readDHT();
     dhtSensor.collectData();
     proccess.collectData();
     Serial.println("-----------------");
     start = now;
   }
 
-  apds.readAPDS();
+  apdSensor.readAPDS();
 }

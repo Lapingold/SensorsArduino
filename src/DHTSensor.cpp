@@ -1,18 +1,15 @@
 #include "DHTSensor.h"
 
-#define DHTTYPE DHT11
 #define DHT_SENSOR_TYPE DHT11
 
-DHT DHTSensor::setUpDHT(byte pin)
-{
-    static const int DHT_SENSOR_PIN = pin;
-    DHT dht(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
-    return dht;
+void DHTSensor::setUpDHT(byte pin)
+{ 
+    DHT dhtTemp(pin, DHT_SENSOR_TYPE);
+    dht = dhtTemp;
 }
 
-void DHTSensor::readDHT(byte pin)
+void DHTSensor::readDHT()
 {
-    DHT dht = setUpDHT(pin);
     dht.begin();
 
     temperature = dht.readTemperature();
