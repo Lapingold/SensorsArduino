@@ -7,7 +7,7 @@ class Proccess: public BaseSensor{
 
     public:
     void printData() override;          // Debug
-    void collectData() override;
+    void collectData(dataPack_t &dataPack) override;
     void proccessData();
     void setDataString(char** values, float reading, byte index, uint16_t minTreshold, uint16_t maxThreshold);
 };

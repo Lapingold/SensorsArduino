@@ -18,19 +18,24 @@ void APDSensor::setUpAPDS()
 
 void APDSensor::readAPDS()
 {
-  if (APDS.colorAvailable()) {
+  if (APDS.colorAvailable())
+  {
     APDS.readColor(r, g, b, a);
   }
 
-  if (APDS.gestureAvailable()) {
+  if (APDS.gestureAvailable())
+  {
     int currentGestures = APDS.readGesture();
-    if (currentGestures != GESTURE_NONE) {
+    if (currentGestures != GESTURE_NONE)
+    {
       gestures = currentGestures;
+
       last_gesture_update = millis();
     }
   }
 
-  if (APDS.proximityAvailable()) {
+  if (APDS.proximityAvailable())
+  {
     proximity = APDS.readProximity();
   }
 }
@@ -51,6 +56,7 @@ void APDSensor::printData()
   Serial.print("Latest gesture change (");
   Serial.print(millis() - last_gesture_update);
   Serial.print("ms ago) was ");
+
   if (gestures == GESTURE_UP)
     Serial.println("UP");
   else if (gestures == GESTURE_DOWN)
@@ -61,11 +67,12 @@ void APDSensor::printData()
     Serial.println("RIGHT");
   else
     Serial.println("NONE");
+
   Serial.print("Proximity: \t");
   Serial.print(proximity);
 }
 
-void APDSensor::collectData()
+void APDSensor::collectData(dataPack_t &dataPack)
 {
   for (size_t i = 0; i < sizeof(colors) / sizeof(uint16_t); i++)
   {
@@ -74,6 +81,4 @@ void APDSensor::collectData()
 
   dataPack.gestureData = gestures;
   dataPack.proximityData = proximity;
-
-  Serial.println("Data is collected in the data pack");
 }

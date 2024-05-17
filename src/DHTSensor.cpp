@@ -14,7 +14,6 @@ void DHTSensor::readDHT()
 
     temperature = dht.readTemperature();
     humidity = dht.readHumidity();
-    printData();
 }
 
 void DHTSensor::printData()
@@ -27,8 +26,8 @@ void DHTSensor::printData()
     Serial.println();
 }
 
-void DHTSensor::collectData() {
+void DHTSensor::collectData(dataPack_t &dataPack) {
+    readDHT();
     dataPack.tempratureData = temperature;
     dataPack.humidityData = humidity;
-    Serial.println("Data is collected in the data pack");
 }

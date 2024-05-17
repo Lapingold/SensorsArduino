@@ -9,7 +9,7 @@ private:
 
         int r, g ,b ,a;
         uint16_t colors[4];
-        uint8_t gestures;
+        int8_t gestures;
         uint32_t last_gesture_update;
         int proximity;
 
@@ -31,6 +31,6 @@ public:
     void setUpAPDS();
     void readAPDS();
     void printData() override;
-    void collectData() override;
+    void collectData(dataPack_t &dataPack) override;
     
 };

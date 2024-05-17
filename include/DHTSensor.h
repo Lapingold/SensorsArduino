@@ -21,6 +21,6 @@ public:
     void setUpDHT(byte pin);
     void readDHT();
     void printData() override;
-    void collectData() override;
+    void collectData(dataPack_t &dataPack) override;
 
 };

@@ -16,19 +16,14 @@ void Proccess::printData()
   }
 }
 
-void Proccess::collectData()
-{
-  proccessData();
-}
-
-void Proccess::proccessData()
+void Proccess::collectData(dataPack_t &dataPack)
 {
 
   static char *humidityConversion[] = {"Low Humidity", "Humid", "High Humidity"};
   static char *temperatureConversion[] = {"Cold", "Average Temperture", "Hot Temperature"};
   static char *colorConversion[] = {"Red", "Green", "Blue"};
   static char *ambientConversion[] = {"Dark", "Neutral Ambience", "Light"};
-  static char *gestureConversion[] = {"Up", "Down", "Left", "Right"};
+  static char *gestureConversion[] = {"None", "Up", "Down", "Left", "Right"};
   static char *proximityConversion[] = {"Close", "Middle distance", "Furthest"};
 
   setDataString(humidityConversion, dataPack.humidityData, 0, 40, 60);
@@ -48,8 +43,8 @@ void Proccess::proccessData()
   {
     proccessDataToSend[4] = colorConversion[2];
   }
-
-  proccessDataToSend[5] = gestureConversion[dataPack.gestureData];
+  
+  proccessDataToSend[5] = gestureConversion[dataPack.gestureData+1];
 }
 
 void Proccess::setDataString(char **values, float reading, byte index, uint16_t minTreshold, uint16_t maxThreshold)
