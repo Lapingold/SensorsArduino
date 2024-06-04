@@ -13,7 +13,7 @@ by our sensors.
 ## Features
 - **Reads temperature 
 - **Reads level of humidity
-- **Reads colour of surrounding and meassures it in terms of R (red), G (green) and B (blue)
+- **Reads colour of surroundings and meassures it in terms of R (red), G (green) and B (blue)
 - **Reads how close the device is to nearest obstacles
 - **Reads degree of brightness 
 - **Interprets data and ships it to the Pico W
@@ -32,5 +32,5 @@ And in order to see the data from the Hum/Temp. Sensor in VSC you also need to i
 - **Make it possible to give commands to Marcai with hand-gestures
 
 ## Acknowledgements
-- [DHT11](https://learn.adafruit.com/dht/overview) Sensor for humidity and temeperature
+- [DHT11](https://learn.adafruit.com/dht/overview) Sensor for humidity and temperature
 - [APDS 9960](https://www.adafruit.com/product/3595) Sensor for brightness, proximity and RGB
