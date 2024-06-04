@@ -2,16 +2,29 @@
 
 void Proccess::printData()
 {
-  Serial.print("This is proccessDataToSend: ");
+  // Serial.print("This is proccessDataToSend: ");
   for (size_t i = 0; i < 6; i++)
   {
-    Serial.print(proccessDataToSend[i]);
-
     if (i == 5)
     {
-      Serial.println("\n-----------------");    
-    } else {
-      Serial.print(',');
+      Serial.print("\n");
+      Serial.print("gesture: ");
+      Serial.println(proccessDataToSend[i]);
+    }
+    else if (i == 4)
+    {
+      Serial.print(proccessDataToSend[i]);
+    }
+    else if (i == 0)
+    {
+      Serial.print("prompt: ");
+      Serial.print(proccessDataToSend[i]);
+      Serial.print(",");
+    }
+    else
+    {
+      Serial.print(proccessDataToSend[i]);
+      Serial.print(",");
     }
   }
 }
@@ -43,8 +56,8 @@ void Proccess::collectData(dataPack_t &dataPack)
   {
     proccessDataToSend[4] = colorConversion[2];
   }
-  
-  proccessDataToSend[5] = gestureConversion[dataPack.gestureData+1];
+
+  proccessDataToSend[5] = gestureConversion[dataPack.gestureData + 1];
 }
 
 void Proccess::setDataString(char **values, float reading, byte index, uint16_t minTreshold, uint16_t maxThreshold)
