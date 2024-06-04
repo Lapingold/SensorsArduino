@@ -21,6 +21,10 @@ void APDSensor::readAPDS()
   if (APDS.colorAvailable())
   {
     APDS.readColor(r, g, b, a);
+    colors[0] = r;
+    colors[1] = g;
+    colors[2] = b;
+    colors[3] = a;
   }
 
   if (APDS.gestureAvailable())
@@ -32,6 +36,9 @@ void APDSensor::readAPDS()
 
       last_gesture_update = millis();
     }
+  }
+  if (millis() - last_gesture_update > 1000) {
+    gestures = GESTURE_NONE;
   }
 
   if (APDS.proximityAvailable())
