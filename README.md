@@ -5,8 +5,8 @@ by our sensors.
 
 ## Table of Contents- 
 - <u>[Features](#features)</u>
-- <u>[DHT11 - Temperature and Humidity Sensor](#DHT11 - Temperature and Humidity Sensor)</u>
-- <u>[APDS 9960 - Gesture, Proximity, RGB and Ambient](#APDS 9960 - Gesture, -Proximity, RGB and Ambient)</u>
+- <u>[DHT11 - Temperature and Humidity Sensor](#DHT11---Temperature-and-Humidity-Sensor)</u>
+- <u>[APDS 9960 - Gesture, Proximity, RGB and Ambient](#APDS-9960---Gesture,--Proximity,-RGB-and-Ambient)</u>
 - <u>[TODO](#TODO)</u>
 - <u>[Acknowledgements](#Acknowledgements)</u>
 
