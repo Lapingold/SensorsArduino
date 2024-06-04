@@ -32,7 +32,7 @@ void Proccess::printData()
 void Proccess::collectData(dataPack_t &dataPack)
 {
 
-  static char *humidityConversion[] = {"Low Humidity", "Humid", "High Humidity"};
+  static char *humidityConversion[] = {"Dry", "Moist", "Wet"};
   static char *temperatureConversion[] = {"Cold", "Average Temperture", "Hot Temperature"};
   static char *colorConversion[] = {"Red", "Green", "Blue"};
   static char *ambientConversion[] = {"Dark", "Neutral Ambience", "Light"};
