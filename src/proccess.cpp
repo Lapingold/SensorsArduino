@@ -2,31 +2,33 @@
 
 void Proccess::printData()
 {
-  // Serial.print("This is proccessDataToSend: ");
-  for (size_t i = 0; i < 6; i++)
-  {
-    if (i == 5)
-    {
-      Serial.print("\n");
-      Serial.print("gesture: ");
-      Serial.println(proccessDataToSend[i]);
-    }
-    else if (i == 4)
-    {
-      Serial.print(proccessDataToSend[i]);
-    }
-    else if (i == 0)
-    {
-      Serial.print("prompt: ");
-      Serial.print(proccessDataToSend[i]);
-      Serial.print(",");
-    }
-    else
-    {
-      Serial.print(proccessDataToSend[i]);
-      Serial.print(",");
-    }
-  }
+  // prompt
+  Serial.print("prompt: ");
+
+  // Humidity
+  Serial.print(proccessDataToSend[0]);
+  Serial.print(",");
+
+  // Temperature
+  Serial.print(proccessDataToSend[1]);
+  Serial.print(",");
+
+  // Proximity
+  Serial.print(proccessDataToSend[2]);
+  Serial.print(",");
+
+  // Ambient
+  Serial.print(proccessDataToSend[3]);
+  Serial.print(",");
+
+  // Colour
+  Serial.print(proccessDataToSend[4]);
+  Serial.print("\n");
+
+  // Gesture
+  Serial.print("gesture: ");
+  Serial.print(proccessDataToSend[5]);
+  Serial.print("\n");
 }
 
 void Proccess::collectData(dataPack_t &dataPack)
@@ -44,11 +46,13 @@ void Proccess::collectData(dataPack_t &dataPack)
   setDataString(proximityConversion, dataPack.proximityData, 2, 75, 150);
   setDataString(ambientConversion, dataPack.colorData[3], 3, 200, 1200);
 
-  if (dataPack.colorData[0] > dataPack.colorData[1] && dataPack.colorData[0] > dataPack.colorData[2])
+  if (dataPack.colorData[0] > dataPack.colorData[1] &&
+      dataPack.colorData[0] > dataPack.colorData[2])
   {
     proccessDataToSend[4] = colorConversion[0];
   }
-  else if (dataPack.colorData[1] > dataPack.colorData[0] && dataPack.colorData[1] > dataPack.colorData[2])
+  else if (dataPack.colorData[1] > dataPack.colorData[0] &&
+           dataPack.colorData[1] > dataPack.colorData[2])
   {
     proccessDataToSend[4] = colorConversion[1];
   }
@@ -60,7 +64,8 @@ void Proccess::collectData(dataPack_t &dataPack)
   proccessDataToSend[5] = gestureConversion[dataPack.gestureData + 1];
 }
 
-void Proccess::setDataString(char **values, float reading, byte index, uint16_t minTreshold, uint16_t maxThreshold)
+void Proccess::setDataString(char **values, float reading, byte index,
+                             uint16_t minThreshold, uint16_t maxThreshold)
 {
   if (reading < minTreshold)
   {
