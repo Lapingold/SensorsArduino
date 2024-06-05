@@ -1,11 +1,11 @@
 #include <Arduino.h>
 #include "DHTSensor.h"
 #include "APDSensor.h"
-#include "proccess.h"
+#include "process.h"
 
 DHTSensor dhtSensor;
 APDSensor apdSensor;
-Proccess proccess;
+Process process;
 BaseSensor::dataPack_t dataPack;
 
 void setup()
@@ -27,8 +27,8 @@ void loop()
 
     dhtSensor.collectData(dataPack);
     apdSensor.collectData(dataPack);
-    proccess.collectData(dataPack);
-    proccess.printData();
+    process.collectData(dataPack);
+    process.printData();
     // apdSensor.printData();
     // Serial.println("-----------------");
     start = now;
