@@ -67,7 +67,7 @@ void Process::collectData(dataPack_t &dataPack)
 }
 
 void Process::setDataString(char **values, float reading, byte index,
-                             uint16_t minThreshold, uint16_t maxThreshold)
+                            uint16_t minThreshold, uint16_t maxThreshold)
 {
   if (reading < minThreshold)
   {
