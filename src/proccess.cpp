@@ -67,11 +67,11 @@ void Proccess::collectData(dataPack_t &dataPack)
 void Proccess::setDataString(char **values, float reading, byte index,
                              uint16_t minThreshold, uint16_t maxThreshold)
 {
-  if (reading < minTreshold)
+  if (reading < minThreshold)
   {
     proccessDataToSend[index] = values[0];
   }
-  else if (reading >= minTreshold && reading <= maxThreshold)
+  else if (reading >= minThreshold && reading <= maxThreshold)
   {
     proccessDataToSend[index] = values[1];
   }
