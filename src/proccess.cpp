@@ -2,26 +2,28 @@
 
 void Proccess::printData()
 {
-  // prompt
-  Serial.print("prompt: ");
-
   // Humidity
+  Serial.print("humidity: ");
   Serial.print(proccessDataToSend[0]);
-  Serial.print(",");
+  Serial.print("\n");
 
   // Temperature
+  Serial.print("temperature: ");
   Serial.print(proccessDataToSend[1]);
-  Serial.print(",");
+  Serial.print("\n");
 
   // Proximity
+  Serial.print("proximity: ");
   Serial.print(proccessDataToSend[2]);
-  Serial.print(",");
+  Serial.print("\n");
 
   // Ambient
+  Serial.print("ambient: ");
   Serial.print(proccessDataToSend[3]);
-  Serial.print(",");
+  Serial.print("\n");
 
   // Colour
+  Serial.print("color: ");
   Serial.print(proccessDataToSend[4]);
   Serial.print("\n");
 
