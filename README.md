@@ -11,12 +11,12 @@ by our sensors.
 - <u>[Acknowledgements](#Acknowledgements)</u>
 
 ## Features
-- **Reads temperature 
-- **Reads level of humidity
-- **Reads colour of surroundings and meassures it in terms of R (red), G (green) and B (blue)
-- **Reads how close the device is to nearest obstacles
-- **Reads degree of brightness 
-- **Interprets data and ships it to the Pico W
+- **Reads temperature** 
+- **Reads level of humidity**
+- **Reads colour of surroundings and meassures it in terms of R (red), G (green) and B (blue)**
+- **Reads how close the device is to nearest obstacles**
+- **Reads degree of brightness**
+- **Interprets data and ships it to the Pico W**
 
 ## DHT11 - Temperature and Humidity Sensor
 ![image](https://github.com/ChasVasastan/SensorsArduino/assets/90247610/ff886cdf-08a3-4ff9-8850-492c6f330fd2)
@@ -27,9 +27,9 @@ And in order to see the data from the Hum/Temp. Sensor in VSC you also need to i
 ![image](https://github.com/ChasVasastan/SensorsArduino/assets/90247610/bf7ba742-1b05-4729-b156-98e1330615df)
 
 ## TODO
-- **Add a microphone that works with the Arduino UNO
-- **Find ways to further read surroundings by new means
-- **Make it possible to give commands to Marcai with hand-gestures
+- **Add a microphone that works with the Arduino UNO**
+- **Find ways to further read surroundings by new means**
+- **Make it possible to give commands to Marcai with hand-gestures**
 
 ## Acknowledgements
 - [DHT11](https://learn.adafruit.com/dht/overview) Sensor for humidity and temperature
