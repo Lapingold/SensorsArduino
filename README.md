@@ -29,7 +29,6 @@ And in order to see the data from the Hum/Temp. Sensor in VSC you also need to i
 ## TODO
 - **Add a microphone that works with the Arduino UNO**
 - **Find ways to further read surroundings by new means**
-- **Make it possible to give commands to Marcai with hand-gestures**
 
 ## Acknowledgements
 - [DHT11](https://learn.adafruit.com/dht/overview) Sensor for humidity and temperature
