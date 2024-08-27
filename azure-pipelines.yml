@@ -6,9 +6,18 @@
 trigger:
 - main
 
-pool: default
+pool:
+  name: default
 
 steps:
-- script: |
-    cmake --build . --target all
-  displayName: 'make'
+- checkout: self
+  submodules: true
+  displayName: 'Checkout'
+- task: CMake@1
+  displayName: 'CMake Configure'
+  inputs:
+    cmakeArgs: '..'
+- task: CMake@1
+  displayName: 'CMake Release'
+  inputs:
+    cmakeArgs: '--build .'
