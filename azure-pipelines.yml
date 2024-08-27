@@ -10,5 +10,5 @@ pool: default
 
 steps:
 - script: |
-    make
+    cmake --build . --target all
   displayName: 'make'
